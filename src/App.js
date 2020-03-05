@@ -6,20 +6,16 @@ import UserInput from './Components/UserInput/UserInput';
 import UserOutput from './Components/UserOutput/UserOutput';
 
 class App extends Component {
-  
-  state = {
-    users: [
-      {name: 'Tavo'},
-    ]
-  }
-  
-  nameChangedHandler(event) {
-    this.setState({
-      users: [
-        { name: event.target.value }
-      ],
-    });
-  }
+	
+	state = {
+    username: 'Gustavo'
+	}
+
+	usernameChangedHandler = (event) => {
+		this.setState({
+			username: event.target.value,
+		});
+	}
 
   render() {
     return (
@@ -40,8 +36,8 @@ class App extends Component {
           </ol>
         </div>
         <div className="components">
-          <UserInput updateName={this.nameChangedHandler.bind(this)} userName={this.state.users[0].name} />
-          <UserOutput userName={this.state.users[0].name} />
+          <UserInput updateName={this.usernameChangedHandler} userName={this.state.username} />
+          <UserOutput userName={this.state.username}/>
         </div>
       </div>
     );
